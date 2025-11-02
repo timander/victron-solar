@@ -1,5 +1,5 @@
 """Pydantic models for solar CSV ingestion and validation."""
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from datetime import datetime
 from typing import Optional
 
@@ -10,6 +10,7 @@ class SolarRecord(BaseModel):
     power: float = Field(..., description="Power in watts")
     energy: Optional[float] = Field(None, description="Cumulative energy in watt-hours")
 
-    class Config:
-        extra = "forbid"
-        anystr_strip_whitespace = True
+    model_config = ConfigDict({
+        "extra": "forbid",
+        "str_strip_whitespace": True
+    })
