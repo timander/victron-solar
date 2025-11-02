@@ -1,3 +1,5 @@
+# CSV path variable (override with `make run CSV=path/to/file.csv`)
+CSV ?= ../data/SolarHistory.csv
 # Set help as the default task
 .DEFAULT_GOAL := help
 
@@ -46,10 +48,10 @@ lint: ## Run flake8 linter
 	flake8 src/
 
 run: ## Run the main pipeline
-	PYTHONPATH=. python -m src.pipeline
+	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; p=SolarPipeline("$(CSV)"); p.load(); print(p.summarize())'
 
 viz: ## Run the visualization
-	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import plot_yield_over_time; df=SolarPipeline().load(); plot_yield_over_time(df)'
+	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import plot_yield_over_time; df=SolarPipeline("$(CSV)").load(); plot_yield_over_time(df)'
 
 clean: ## Remove cache and build artifacts
 	rm -rf __pycache__ .pytest_cache

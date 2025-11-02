@@ -2,8 +2,11 @@
 import pytest
 from src.pipeline import SolarPipeline
 
+import os
+
 def test_pipeline_instantiation():
-    pipeline = SolarPipeline()
+    csv_path = os.environ.get("CSV", "../data/SolarHistory.csv")
+    pipeline = SolarPipeline(csv_path)
     assert isinstance(pipeline, SolarPipeline)
 
 

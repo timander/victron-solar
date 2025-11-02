@@ -3,9 +3,10 @@ from pathlib import Path
 import polars as pl
 from typing import Optional
 
+
 class SolarPipeline:
-    def __init__(self, csv_path: Optional[str] = None):
-        self.csv_path = csv_path or str(Path(__file__).parent.parent / "data" / "SolarHistory.csv")
+    def __init__(self, csv_path: str):
+        self.csv_path = csv_path
         self.df: Optional[pl.DataFrame] = None
 
     def load(self) -> pl.DataFrame:
