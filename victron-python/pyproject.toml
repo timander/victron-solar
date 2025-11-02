@@ -2,18 +2,27 @@
 name = "victron-python"
 version = "0.1.0"
 description = "Data pipeline for solar CSV ingestion, processing, and reporting."
-authors = ["Your Name <your@email.com>"]
+authors = [
+	{name = "Your Name", email = "your@email.com"}
+]
 requires-python = ">=3.9"
 
 [tool.pdm]
 [tool.poetry]
 
-[project.dependencies]
-polars = "*"
-pydantic = "*"
+
+dependencies = [
+	"polars",
+	"pydantic",
+	"matplotlib"
+]
+
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = [
+	"pytest",
+	"flake8"
+]
 
 [build-system]
 requires = ["setuptools", "wheel"]
