@@ -8,11 +8,11 @@ install:
 test:
 	pytest tests/
 
-lint:
-	flake8 victron/
 
-run:
-	python -m victron.pipeline
+lint:
+	flake8 src/
+
+	python -m src.pipeline
 
 clean:
 	rm -rf __pycache__ .pytest_cache
