@@ -1,0 +1,36 @@
+# Containerfile for GnuCOBOL Solar Cost Analysis
+# Uses Debian slim for better GnuCOBOL package support
+
+FROM debian:bookworm-slim
+
+# Set metadata labels
+LABEL maintainer="victron-solar-demo"
+LABEL description="GnuCOBOL environment for solar cost analysis"
+LABEL version="1.0"
+
+# Install GnuCOBOL and dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        gnucobol4 \
+        make \
+        && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create working directories
+RUN mkdir -p /app/src /app/data /app/output /app/bin
+
+# Set working directory
+WORKDIR /app
+
+# Copy COBOL source files
+COPY src/*.cbl /app/src/
+
+# Environment variables for file paths
+ENV CSV_INPUT=/app/data/SolarHistory.csv
+ENV REPORT_OUTPUT=/app/output/solar_cost_report.txt
+ENV COB_SCREEN_EXCEPTIONS=Y
+ENV COB_SCREEN_ESC=Y
+
+# Default command shows how to use the container
+CMD ["echo", "GnuCOBOL container ready. Use: podman run -v ./data:/app/data -v ./output:/app/output <image> /app/bin/SOLARCOST"]

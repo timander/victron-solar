@@ -1,0 +1,50 @@
+======================================================================
+SOLAR ENERGY COST ANALYSIS REPORT
+======================================================================
+
+Analysis Period:  31 days
+Electricity Rate: $0.140 per kWh
+
+----------------------------------------------------------------------
+ENERGY SUMMARY
+----------------------------------------------------------------------
+Solar Energy Collected:       1.90 kWh
+Energy Consumed:              0.00 kWh
+Solar Offset:                 0.0%
+
+Daily Average Solar:        0.061 kWh
+Daily Average Consumption:  0.000 kWh
+
+----------------------------------------------------------------------
+FINANCIAL ANALYSIS
+----------------------------------------------------------------------
+Value of Solar Generated:  $   0.26
+Cost of Energy Consumed:   $   0.00
+NET SAVINGS:               $   0.26
+
+----------------------------------------------------------------------
+PROJECTIONS
+----------------------------------------------------------------------
+Projected Annual Savings:  $   3.06
+
+----------------------------------------------------------------------
+INVESTMENT GUIDANCE
+----------------------------------------------------------------------
+Based on your  31-day analysis:
+
+* Your solar system generates $   0.26 worth of energy
+* You are NET POSITIVE - solar exceeds consumption
+* Solar offsets    0.0% of your energy needs
+
+Annual Value Analysis:
+* Annual solar generation value: $   3.06
+* Break-even timeline depends on system cost
+  - $1,000 system =  326.7 years payback
+  - $2,000 system =  653.5 years payback
+  - $3,000 system =  980.3 years payback
+
+Recommendation: Your current solar output is LOW.
+Consider expanding your solar array to
+maximize ROI and reduce grid dependence.
+
+======================================================================

@@ -1,0 +1,9 @@
+# Containerignore file for GnuCOBOL project
+output/*
+*.txt
+*.log
+.git
+.gitignore
+README.md
+scripts/*
+Makefile
