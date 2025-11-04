@@ -5,26 +5,63 @@ description = "Data pipeline for solar CSV ingestion, processing, and reporting.
 authors = [
 	{name = "Your Name", email = "your@email.com"}
 ]
-requires-python = ">=3.9"
-
-[tool.pdm]
-[tool.poetry]
-
-
+requires-python = ">=3.13"
 dependencies = [
-	"polars",
-	"pydantic",
-	"matplotlib",
-	"great_expectations"
+	"polars>=1.0.0",
+	"pydantic>=2.0.0",
+	"matplotlib>=3.8.0",
+	"loguru>=0.7.0",
 ]
 
-
 [project.optional-dependencies]
-test = [
-	"pytest",
-	"flake8"
+dev = [
+	"pytest>=8.0.0",
+	"ruff>=0.6.0",
+	"mypy>=1.11.0",
 ]
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+	"E",   # pycodestyle errors
+	"W",   # pycodestyle warnings
+	"F",   # pyflakes
+	"I",   # isort
+	"N",   # pep8-naming
+	"UP",  # pyupgrade
+	"B",   # flake8-bugbear
+	"C4",  # flake8-comprehensions
+	"SIM", # flake8-simplify
+]
+ignore = [
+	"E501", # line too long (handled by formatter)
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"

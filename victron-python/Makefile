@@ -4,8 +4,8 @@ CSV ?= ../data/SolarHistory.csv
 .DEFAULT_GOAL := help
 
 # If using pyenv, ensure the correct Python version is selected before running 'make env'.
-# Example: pyenv shell 3.11.8
-.PHONY: help install env deactivate build test lint run viz clean
+# Example: pyenv shell 3.13.9
+.PHONY: help install env deactivate build test lint format type-check run viz clean
 
 # Usage: make <target>
 #
@@ -14,9 +14,11 @@ CSV ?= ../data/SolarHistory.csv
 #   install     Install dependencies (in venv)
 #   env         Create and activate Python venv (if not exists)
 #   deactivate  Print deactivation instructions
-#   build       Build the project (install + lint)
+#   build       Build the project (install + lint + type-check)
 #   test        Run all tests
-#   lint        Run flake8 linter
+#   lint        Run ruff linter
+#   format      Format code with ruff
+#   type-check  Run mypy type checker
 #   run         Run the main pipeline
 #   viz         Run the visualization
 #   clean       Remove cache and build artifacts
@@ -34,18 +36,24 @@ env: ## Create and activate Python venv (if not exists)
 	echo "Venv activated. To deactivate, run 'deactivate' in your shell."
 
 install: ## Install dependencies (in venv)
-	. .venv/bin/activate && pip install -e .[test]
+	. .venv/bin/activate && pip install -e .[dev]
 
 deactivate: ## Print deactivation instructions
 	@echo "To deactivate, run 'deactivate' in your shell."
 
-build: install lint ## Build the project (install + lint)
+build: install lint type-check ## Build the project (install + lint + type-check)
 
 test: ## Run all tests
-	PYTHONPATH=. pytest tests/
+	. .venv/bin/activate && PYTHONPATH=. pytest tests/
 
-lint: ## Run flake8 linter
-	flake8 src/
+lint: ## Run ruff linter
+	. .venv/bin/activate && ruff check src/ tests/
+
+format: ## Format code with ruff
+	. .venv/bin/activate && ruff format src/ tests/
+
+type-check: ## Run mypy type checker
+	. .venv/bin/activate && mypy src/
 
 run: ## Run the main pipeline
 	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; p=SolarPipeline("$(CSV)"); p.load(); print(p.summarize())'
