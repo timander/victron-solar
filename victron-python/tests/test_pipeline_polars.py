@@ -8,7 +8,7 @@ def test_pipeline_load_and_summary():
     pipeline = SolarPipeline(csv_path)
     df = pipeline.load()
     assert df.height > 0
-    
+
     # Test that summarize returns a typed SolarSummary object
     summary = pipeline.summarize()
     assert hasattr(summary, "total_yield_wh")
