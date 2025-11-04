@@ -32,8 +32,10 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     logger.info("Creating comprehensive solar dashboard")
 
     # Sort by date (oldest first for time series)
-    df = df.sort("Date")
+    df = df.sort("Date", descending=True)
     dates = df["Date"].to_list()
+    # Reverse dates for chronological order (oldest to newest)
+    dates.reverse()
 
     # Create figure with custom layout
     fig = plt.figure(figsize=(20, 12))
@@ -42,6 +44,7 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     # Panel 1: Daily Energy Yield (top left, spans 2 columns)
     ax1 = fig.add_subplot(gs[0, :2])
     yields = df["Yield(Wh)"].to_list()
+    yields.reverse()  # Reverse to match chronological dates
     avg_yield = df["Yield(Wh)"].mean()
     ax1.bar(dates, yields, alpha=0.7, color="gold", edgecolor="orange", linewidth=1.5)
     ax1.axhline(
@@ -63,18 +66,18 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     days = df.height
 
     summary_text = f"""
-    📊 SYSTEM SUMMARY ({days} days)
+    SYSTEM SUMMARY ({days} days)
 
-    ⚡ Total Energy: {total_yield:.0f} Wh
-    📈 Daily Average: {avg_yield:.0f} Wh
-    🔆 Peak Power: {max_power:.0f} W
+    Total Energy: {total_yield:.0f} Wh
+    Daily Average: {avg_yield:.0f} Wh
+    Peak Power: {max_power:.0f} W
 
-    🔋 BATTERY HEALTH
-    ✓ Max Voltage: {avg_max_voltage:.2f} V
-    ⚠ Min Voltage: {min_min_voltage:.2f} V
-    {"✅ Healthy" if min_min_voltage > 12.0 else "⚠️ Low voltage detected"}
+    BATTERY HEALTH
+    Max Voltage: {avg_max_voltage:.2f} V
+    Min Voltage: {min_min_voltage:.2f} V
+    Status: {"Healthy" if min_min_voltage > 12.0 else "Low voltage detected"}
 
-    {"⚠️ WARNING: Battery may be\n    undercharged or oversized\n    for solar capacity" if total_yield < 500 else "✅ System operating normally"}
+    {"WARNING: Battery may be undercharged\nor oversized for solar capacity" if total_yield < 500 else "System operating normally"}
     """
     ax2.text(
         0.05,
@@ -195,22 +198,22 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     low_battery_days = sum(1 for v in min_v if v < 12.2)
 
     insights_text = f"""
-    💡 KEY INSIGHTS
+    KEY INSIGHTS
 
-    ☀️ PRODUCTION
-    • {days_good_production}/{days} days above average
-    • {days_low_production} low production days
+    PRODUCTION
+    - {days_good_production}/{days} days above average
+    - {days_low_production} low production days
 
-    🔋 CHARGING PATTERN
-    • Bulk: {avg_bulk_time:.0f} min avg
-    • Absorption: {avg_absorption_time:.0f} min avg
-    {"• ⚠️ Long bulk times suggest\n  undersized solar array" if avg_bulk_time > 300 else "• ✅ Good charging speed"}
+    CHARGING PATTERN
+    - Bulk: {avg_bulk_time:.0f} min avg
+    - Absorption: {avg_absorption_time:.0f} min avg
+    {"- WARNING: Long bulk times suggest\n  undersized solar array" if avg_bulk_time > 300 else "- Good charging speed"}
 
-    ⚡ BATTERY HEALTH
-    {"• ⚠️ " + str(low_battery_days) + " days below 12.2V\n  (50% SOC for 12V system)" if low_battery_days > 0 else "• ✅ Good voltage maintained"}
+    BATTERY HEALTH
+    {"- WARNING: " + str(low_battery_days) + " days below 12.2V\n  (50% SOC for 12V system)" if low_battery_days > 0 else "- Good voltage maintained"}
 
-    📈 RECOMMENDATIONS
-    {"• Consider larger solar array\n• Check battery capacity" if avg_yield < 200 else "• System performing well\n• Monitor during winter"}
+    RECOMMENDATIONS
+    {"- Consider larger solar array\n- Check battery capacity" if avg_yield < 200 else "- System performing well\n- Monitor during winter"}
     """
 
     ax8.text(
