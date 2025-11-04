@@ -1,4 +1,4 @@
-.PHONY: help build run clean test
+.PHONY: help build run clean test coverage coverage-build coverage-run coverage-report coverage-clean
 
 .DEFAULT_GOAL := help
 
@@ -6,7 +6,7 @@ help: ## Show this help message
 	@echo "COBOL Solar Cost Analysis - Make targets:"
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | \
-		awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
+		awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 build: ## Build container image and compile COBOL program
 	@./scripts/build.sh
@@ -18,6 +18,28 @@ report: build run ## Build and run to generate cost report
 	@echo ""
 	@echo "Report generated successfully:"
 	@cat ./output/solar_cost_report.txt
+
+coverage-build: ## Build COBOL program with coverage instrumentation
+	@./scripts/build-coverage.sh
+
+coverage-run: ## Run coverage-enabled program and collect data
+	@./scripts/run-coverage.sh
+
+coverage-report: ## Generate HTML coverage report
+	@./scripts/generate-coverage-report.sh
+
+coverage: coverage-build coverage-run coverage-report ## Full coverage workflow: build, run, report
+	@echo ""
+	@echo "======================================"
+	@echo "Coverage Analysis Complete!"
+	@echo "======================================"
+	@echo "View report: open ./coverage/html/index.html"
+
+coverage-clean: ## Remove coverage data and reports
+	@echo "Cleaning coverage data..."
+	@rm -rf ./coverage
+	@rm -f ./output/*.gcda ./output/*.gcno ./output/*.gcov
+	@echo "✓ Coverage data cleaned"
 
 clean: ## Remove compiled artifacts and output files
 	@echo "Cleaning artifacts..."
