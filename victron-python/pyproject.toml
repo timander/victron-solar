@@ -14,7 +14,8 @@ requires-python = ">=3.9"
 dependencies = [
 	"polars",
 	"pydantic",
-	"matplotlib"
+	"matplotlib",
+	"great_expectations"
 ]
 
 
