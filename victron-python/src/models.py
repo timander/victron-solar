@@ -1,6 +1,5 @@
 """Pydantic models for solar CSV ingestion and validation."""
 
-
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
