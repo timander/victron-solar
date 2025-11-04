@@ -64,5 +64,8 @@ viz: ## Run the visualization
 dashboard: ## Generate comprehensive solar performance dashboard
 	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import create_comprehensive_dashboard; df=SolarPipeline("$(CSV)").load(); create_comprehensive_dashboard(df, "solar_dashboard.png"); print("Dashboard saved to solar_dashboard.png")'
 
+cost-report: ## Generate solar cost analysis report
+	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.cost_analysis import save_cost_report; df=SolarPipeline("$(CSV)").load(); save_cost_report(df, "solar_cost_report.txt"); print("Cost report saved to solar_cost_report.txt")'
+
 clean: ## Remove cache and build artifacts
-	rm -rf __pycache__ .pytest_cache *.png
+	rm -rf __pycache__ .pytest_cache *.png *.txt
