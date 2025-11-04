@@ -61,5 +61,8 @@ run: ## Run the main pipeline
 viz: ## Run the visualization
 	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import plot_yield_over_time; df=SolarPipeline("$(CSV)").load(); plot_yield_over_time(df)'
 
+dashboard: ## Generate comprehensive solar performance dashboard
+	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import create_comprehensive_dashboard; df=SolarPipeline("$(CSV)").load(); create_comprehensive_dashboard(df, "solar_dashboard.png"); print("Dashboard saved to solar_dashboard.png")'
+
 clean: ## Remove cache and build artifacts
-	rm -rf __pycache__ .pytest_cache
+	rm -rf __pycache__ .pytest_cache *.png
