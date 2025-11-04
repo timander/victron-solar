@@ -31,11 +31,9 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     """
     logger.info("Creating comprehensive solar dashboard")
 
-    # Sort by date (oldest first for time series)
-    df = df.sort("Date", descending=True)
+    # Sort by Days ago (descending = oldest first, since days ago is inverse chronological)
+    df = df.sort("Days ago", descending=True)
     dates = df["Date"].to_list()
-    # Reverse dates for chronological order (oldest to newest)
-    dates.reverse()
 
     # Create figure with custom layout
     fig = plt.figure(figsize=(20, 12))
@@ -44,7 +42,6 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     # Panel 1: Daily Energy Yield (top left, spans 2 columns)
     ax1 = fig.add_subplot(gs[0, :2])
     yields = df["Yield(Wh)"].to_list()
-    yields.reverse()  # Reverse to match chronological dates
     avg_yield = df["Yield(Wh)"].mean()
     ax1.bar(dates, yields, alpha=0.7, color="gold", edgecolor="orange", linewidth=1.5)
     ax1.axhline(
