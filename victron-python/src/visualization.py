@@ -1,7 +1,6 @@
 """Visualization utilities for solar usage summary report."""
 
 from pathlib import Path
-from typing import Optional
 
 import matplotlib.pyplot as plt
 import polars as pl
@@ -9,7 +8,7 @@ from loguru import logger
 from matplotlib.figure import Figure
 
 
-def plot_yield_over_time(df: pl.DataFrame, save_path: Optional[str | Path] = None) -> Figure:
+def plot_yield_over_time(df: pl.DataFrame, save_path: str | Path | None = None) -> Figure:
     """Plot daily solar yield over time.
 
     Args:
@@ -49,7 +48,7 @@ def plot_yield_over_time(df: pl.DataFrame, save_path: Optional[str | Path] = Non
     return fig
 
 
-def plot_battery_voltage(df: pl.DataFrame, save_path: Optional[str | Path] = None) -> Figure:
+def plot_battery_voltage(df: pl.DataFrame, save_path: str | Path | None = None) -> Figure:
     """Plot battery voltage range over time.
 
     Args:
