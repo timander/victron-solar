@@ -1,6 +1,8 @@
 """Visualization utilities for solar usage summary report."""
+
 import matplotlib.pyplot as plt
 import polars as pl
+
 
 def plot_yield_over_time(df: pl.DataFrame, save_path: str = None):
     """Plot daily solar yield over time."""

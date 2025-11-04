@@ -1,7 +1,7 @@
-import pytest
+import os
+
 from src.pipeline import SolarPipeline
 
-import os
 
 def test_pipeline_load_and_summary():
     csv_path = os.environ.get("CSV", "../data/SolarHistory.csv")
@@ -11,6 +11,7 @@ def test_pipeline_load_and_summary():
     summary = pipeline.summarize()
     assert "total_yield_Wh" in summary
     assert summary["total_days"] == df.height
+
 
 def test_pipeline_filter_by_date():
     csv_path = os.environ.get("CSV", "../data/SolarHistory.csv")

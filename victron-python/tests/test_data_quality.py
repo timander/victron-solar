@@ -1,6 +1,8 @@
 import os
-from src.pipeline import SolarPipeline
+
 from src.data_quality import validate_solar_data
+from src.pipeline import SolarPipeline
+
 
 def test_data_quality():
     csv_path = os.environ.get("CSV", "../data/SolarHistory.csv")
