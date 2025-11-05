@@ -236,31 +236,60 @@ def render_html(coverage: CoverageMap, cobol_lines: List[str], title: str) -> st
     rows_html = "\n    ".join(rows)
 
     style = """
-body { font-family: 'Courier New', monospace; background: #ffffff; color: #1f2933; margin: 1.5rem; }
-h1 { margin: 0 0 0.5rem; font-size: 1.6rem; color: #1f2933; }
-.summary { margin: 0.75rem 0 1.25rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
-.summary-card { background: #f5f5f5; padding: 0.6rem 1rem; border-radius: 0.35rem; border: 1px solid #d1d5db; }
-.summary-card h2 { margin: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #374151; }
-.summary-card p { margin: 0.35rem 0 0; font-size: 1.15rem; font-weight: 600; color: #111827; }
-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-th, td { padding: 0.25rem 0.5rem; text-align: left; border-bottom: 1px solid #d1d5db; }
-th { position: sticky; top: 0; background: #f3f4f6; z-index: 2; color: #1f2933; }
-.line-no { width: 3.5rem; color: #4b5563; }
-.hit-count { width: 4.5rem; text-align: right; color: #1f2933; }
-.branch-cell { width: 6rem; }
-.code { white-space: pre; color: #111827; }
-.covered { background: #cdecc7; }
-.missed { background: #ffd6d6; }
-.partial { background: #fff4bf; }
-.nonexec { background: #eceff4; color: #606f7b; }
-.legend { margin-top: 1rem; display: flex; gap: 1rem; font-size: 0.8rem; color: #374151; }
-.legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
-.legend .swatch { width: 0.9rem; height: 0.9rem; border-radius: 0.2rem; display: inline-block; border: 1px solid #cbd5e1; }
-.legend .covered { background: #cdecc7; }
-.legend .partial { background: #fff4bf; }
-.legend .missed { background: #ffd6d6; }
-.legend .nonexec { background: #eceff4; }
-    """
+/* IBM 3270-style CRT theme */
+@keyframes crt-flicker { 0% { opacity: 0.98; } 50% { opacity: 1; } 100% { opacity: 0.98; } }
+
+html, body { height: 100%; }
+body {
+    margin: 1.25rem;
+    background: #000000;
+    color: #3cff3c;
+    font-family: 'VT323','IBM Plex Mono','Lucida Console','Courier New', monospace;
+    font-size: 16px;
+    text-shadow: 0 0 6px rgba(60, 255, 60, 0.45);
+}
+
+.crt {
+    padding: 14px 16px;
+    border: 2px solid #1cff1c;
+    border-radius: 8px;
+    background:
+        radial-gradient(120% 75% at 50% 0%, rgba(28,255,28,0.06), rgba(0,0,0,0.0)),
+        repeating-linear-gradient(to bottom, rgba(0,0,0,0.0) 0px, rgba(0,0,0,0.0) 3px, rgba(28,255,28,0.07) 4px, rgba(0,0,0,0.0) 5px);
+    box-shadow: 0 0 24px rgba(28,255,28,0.20), inset 0 0 28px rgba(28,255,28,0.15);
+    animation: crt-flicker 1.8s infinite;
+}
+
+h1 { margin: 0 0 8px; font-size: 20px; letter-spacing: 1px; }
+h1::after { content: ' ▉'; animation: crt-flicker 1.2s steps(2,end) infinite; }
+
+.summary { margin: 6px 0 12px; display: flex; gap: 12px; flex-wrap: wrap; }
+.summary-card { background: rgba(0, 32, 0, 0.55); padding: 6px 10px; border-radius: 4px; border: 1px solid #1cff1c; }
+.summary-card h2 { margin: 0; font-size: 12px; letter-spacing: 1px; color: #9dff9d; text-transform: uppercase; }
+.summary-card p { margin: 4px 0 0; font-size: 16px; font-weight: 700; color: #d6ffd6; }
+
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+th, td { padding: 2px 6px; text-align: left; border-bottom: 1px solid rgba(28,255,28,0.25); }
+th { position: sticky; top: 0; background: rgba(0, 40, 0, 0.85); color: #b2ffb2; }
+.line-no { width: 3.5rem; color: #8cff8c; }
+.hit-count { width: 4.5rem; text-align: right; color: #cbffcb; }
+.branch-cell { width: 6rem; color: #cbffcb; }
+.code { white-space: pre; color: #e6ffe6; }
+
+/* Coverage colors in CRT palette */
+.covered { background: rgba(0, 128, 0, 0.35); }
+.partial { background: rgba(255, 255, 0, 0.28); color: #fffbc1; }
+.missed  { background: rgba(255, 56, 56, 0.32); color: #ffd6d6; }
+.nonexec { background: rgba(120, 120, 120, 0.18); color: #8fae8f; }
+
+.legend { margin-top: 10px; display: flex; gap: 12px; font-size: 12px; color: #b2ffb2; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend .swatch { width: 12px; height: 12px; border-radius: 2px; display: inline-block; border: 1px solid #1cff1c; box-shadow: 0 0 6px rgba(28,255,28,0.35); }
+.legend .covered { background: rgba(0, 128, 0, 0.6); }
+.legend .partial { background: rgba(255, 255, 0, 0.6); }
+.legend .missed  { background: rgba(255, 56, 56, 0.6); }
+.legend .nonexec { background: rgba(120, 120, 120, 0.45); }
+        """
 
     return f"""
 <!DOCTYPE html>
@@ -271,6 +300,7 @@ th { position: sticky; top: 0; background: #f3f4f6; z-index: 2; color: #1f2933; 
 <style>{style}</style>
 </head>
 <body>
+<div class=\"crt\">
 <h1>{html.escape(title)}</h1>
 <div class=\"summary\">
   <div class=\"summary-card\">
@@ -295,6 +325,7 @@ th { position: sticky; top: 0; background: #f3f4f6; z-index: 2; color: #1f2933; 
   <span><span class=\"swatch partial\"></span>Partial Branch</span>
   <span><span class=\"swatch missed\"></span>Missed</span>
   <span><span class=\"swatch nonexec\"></span>Non-executable</span>
+</div>
 </div>
 </body>
 </html>
