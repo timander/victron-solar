@@ -184,6 +184,63 @@ def build_json_payload(coverage: CoverageMap, cobol_lines: List[str]) -> Dict[st
     return payload
 
 
+def highlight_cobol(line: str) -> str:
+    """Apply COBOL syntax highlighting with HTML spans."""
+    # Escape HTML first
+    result = html.escape(line)
+    
+    # Highlight comments (lines starting with * in column 7)
+    if result.lstrip().startswith('*'):
+        return f'<span class="cmt">{result}</span>'
+    
+    import re
+    
+    # Highlight string literals first (preserve them from further processing)
+    strings = []
+    def save_string(match):
+        strings.append(match.group(0))
+        return f'___STRING_{len(strings)-1}___'
+    result = re.sub(r'(&quot;[^&quot;]*&quot;)', save_string, result)
+    
+    # Define COBOL patterns (order matters - most specific first)
+    # Match divisions as complete phrases
+    result = re.sub(r'\b(IDENTIFICATION)\s+(DIVISION)\b', r'<span class="div">\1 \2</span>', result, flags=re.IGNORECASE)
+    result = re.sub(r'\b(ENVIRONMENT)\s+(DIVISION)\b', r'<span class="div">\1 \2</span>', result, flags=re.IGNORECASE)
+    result = re.sub(r'\b(DATA)\s+(DIVISION)\b', r'<span class="div">\1 \2</span>', result, flags=re.IGNORECASE)
+    result = re.sub(r'\b(PROCEDURE)\s+(DIVISION)\b', r'<span class="div">\1 \2</span>', result, flags=re.IGNORECASE)
+    
+    # Match section declarations
+    result = re.sub(r'\b(FILE-CONTROL|INPUT-OUTPUT|WORKING-STORAGE|CONFIGURATION)\s+(SECTION)\b', 
+                   r'<span class="kw">\1 \2</span>', result, flags=re.IGNORECASE)
+    result = re.sub(r'\b(FILE)\s+(SECTION)\b', r'<span class="kw">\1 \2</span>', result, flags=re.IGNORECASE)
+    
+    # PIC clauses (with optional space before data type)
+    result = re.sub(r'\b(PIC|PICTURE)\s+', r'<span class="pic">\1 </span>', result, flags=re.IGNORECASE)
+    
+    # Common compound phrases
+    result = re.sub(r'\b(FILE)\s+(STATUS)\b', r'<span class="kw">\1 \2</span>', result, flags=re.IGNORECASE)
+    result = re.sub(r'\b(LINE)\s+(SEQUENTIAL)\b', r'<span class="kw">\1 \2</span>', result, flags=re.IGNORECASE)
+    
+    # Single keywords
+    keywords = (r'\b(PROGRAM-ID|AUTHOR|SELECT|ASSIGN|TO|ORGANIZATION|IS|FD|SD|'
+                r'VALUE|COMP|COMPUTATIONAL|USAGE|'
+                r'PERFORM|UNTIL|VARYING|FROM|BY|THRU|THROUGH|TIMES|'
+                r'IF|ELSE|END-IF|EVALUATE|WHEN|END-EVALUATE|OTHER|'
+                r'MOVE|ADD|SUBTRACT|MULTIPLY|DIVIDE|COMPUTE|'
+                r'OPEN|INPUT|OUTPUT|I-O|EXTEND|CLOSE|READ|WRITE|REWRITE|DELETE|'
+                r'ACCEPT|DISPLAY|STOP|RUN|EXIT|GOBACK|RETURN|'
+                r'INITIALIZE|INSPECT|STRING|UNSTRING|CALL|CANCEL|'
+                r'OF|IN|ON|AT|INTO|GIVING|REMAINDER|SIZE|'
+                r'NOT|AND|OR|EQUAL|GREATER|LESS|THAN)\b')
+    result = re.sub(keywords, r'<span class="kw">\1</span>', result, flags=re.IGNORECASE)
+    
+    # Restore strings with highlighting
+    for i, string_val in enumerate(strings):
+        result = result.replace(f'___STRING_{i}___', f'<span class="str">{string_val}</span>')
+    
+    return result
+
+
 def render_html(coverage: CoverageMap, cobol_lines: List[str], title: str) -> str:
     summary = compute_summary(coverage)
     line_totals = summary["lines"]
@@ -222,6 +279,9 @@ def render_html(coverage: CoverageMap, cobol_lines: List[str], title: str) -> st
         else:
             branch_cell = '<td class="branch-cell">-</td>'
 
+        # Apply COBOL syntax highlighting to the code
+        highlighted_code = highlight_cobol(text)
+
         rows.append(
             "<tr class=\"{cls}\"><td class=\"line-no\">{line}</td>"
             "<td class=\"hit-count\">{hits}</td>{branch}<td class=\"code\">{code}</td></tr>".format(
@@ -229,67 +289,136 @@ def render_html(coverage: CoverageMap, cobol_lines: List[str], title: str) -> st
                 line=idx,
                 hits=hits_display,
                 branch=branch_cell,
-                code=html.escape(text),
+                code=highlighted_code,
             )
         )
 
     rows_html = "\n    ".join(rows)
 
     style = """
-/* IBM 3270-style CRT theme */
-@keyframes crt-flicker { 0% { opacity: 0.98; } 50% { opacity: 1; } 100% { opacity: 0.98; } }
+/* IBM 3270 Mainframe Terminal - Authentic */
+@font-face {
+    font-family: '3270';
+    src: url('data:font/woff2;base64,d09GMgABAAAAAD...'); /* Would need actual font */
+}
 
-html, body { height: 100%; }
+html, body { height: 100%; margin: 0; padding: 0; }
 body {
-    margin: 1.25rem;
+    margin: 0;
+    padding: 1.5rem;
     background: #000000;
-    color: #3cff3c;
-    font-family: 'VT323','IBM Plex Mono','Lucida Console','Courier New', monospace;
-    font-size: 16px;
-    text-shadow: 0 0 6px rgba(60, 255, 60, 0.45);
+    color: #00ff00;
+    font-family: '3270', 'IBM 3270', 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
 }
 
-.crt {
-    padding: 14px 16px;
-    border: 2px solid #1cff1c;
-    border-radius: 8px;
-    background:
-        radial-gradient(120% 75% at 50% 0%, rgba(28,255,28,0.06), rgba(0,0,0,0.0)),
-        repeating-linear-gradient(to bottom, rgba(0,0,0,0.0) 0px, rgba(0,0,0,0.0) 3px, rgba(28,255,28,0.07) 4px, rgba(0,0,0,0.0) 5px);
-    box-shadow: 0 0 24px rgba(28,255,28,0.20), inset 0 0 28px rgba(28,255,28,0.15);
-    animation: crt-flicker 1.8s infinite;
+h1 { 
+    margin: 0 0 1rem; 
+    font-size: 14px; 
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #00ff00;
 }
 
-h1 { margin: 0 0 8px; font-size: 20px; letter-spacing: 1px; }
-h1::after { content: ' ▉'; animation: crt-flicker 1.2s steps(2,end) infinite; }
+.summary { 
+    margin: 0 0 1.5rem; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.summary-card { 
+    background: #001100; 
+    padding: 0.5rem 0.75rem; 
+    border: 1px solid #00ff00;
+}
+.summary-card h2 { 
+    margin: 0 0 0.25rem; 
+    font-size: 12px; 
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #00ff00; 
+    text-transform: uppercase; 
+}
+.summary-card p { 
+    margin: 0; 
+    font-size: 14px; 
+    font-weight: 700; 
+    color: #00ff00; 
+}
 
-.summary { margin: 6px 0 12px; display: flex; gap: 12px; flex-wrap: wrap; }
-.summary-card { background: rgba(0, 32, 0, 0.55); padding: 6px 10px; border-radius: 4px; border: 1px solid #1cff1c; }
-.summary-card h2 { margin: 0; font-size: 12px; letter-spacing: 1px; color: #9dff9d; text-transform: uppercase; }
-.summary-card p { margin: 4px 0 0; font-size: 16px; font-weight: 700; color: #d6ffd6; }
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    table-layout: fixed;
+    border: 1px solid #00ff00;
+}
+th, td { 
+    padding: 1px 6px; 
+    text-align: left; 
+    border-bottom: 1px solid #003300;
+    font-size: 13px;
+}
+th { 
+    position: sticky; 
+    top: 0; 
+    background: #001100; 
+    color: #00ff00;
+    font-weight: 700;
+    border-bottom: 1px solid #00ff00;
+}
+.line-no { width: 4rem; color: #00cc00; text-align: right; }
+.hit-count { width: 3.5rem; text-align: right; color: #00cc00; }
+.branch-cell { width: 5rem; color: #00cc00; text-align: center; }
+.code { 
+    white-space: pre; 
+    color: #00ff00; 
+    font-family: '3270', 'IBM 3270', 'IBM Plex Mono', 'Consolas', monospace;
+}
 
-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-th, td { padding: 2px 6px; text-align: left; border-bottom: 1px solid rgba(28,255,28,0.25); }
-th { position: sticky; top: 0; background: rgba(0, 40, 0, 0.85); color: #b2ffb2; }
-.line-no { width: 3.5rem; color: #8cff8c; }
-.hit-count { width: 4.5rem; text-align: right; color: #cbffcb; }
-.branch-cell { width: 6rem; color: #cbffcb; }
-.code { white-space: pre; color: #e6ffe6; }
+/* COBOL Syntax Highlighting */
+.kw { color: #00ffff; font-weight: 700; }  /* Keywords - cyan */
+.div { color: #ffff00; font-weight: 700; } /* Divisions - yellow */
+.str { color: #ff00ff; }                   /* Strings - magenta */
+.cmt { color: #00aa00; }                   /* Comments - dim green */
+.num { color: #00ffff; }                   /* Numbers - cyan */
+.pic { color: #ff8800; font-weight: 700; } /* PIC clauses - orange */
 
-/* Coverage colors in CRT palette */
-.covered { background: rgba(0, 128, 0, 0.35); }
-.partial { background: rgba(255, 255, 0, 0.28); color: #fffbc1; }
-.missed  { background: rgba(255, 56, 56, 0.32); color: #ffd6d6; }
-.nonexec { background: rgba(120, 120, 120, 0.18); color: #8fae8f; }
+/* Coverage status colors - preserve semantics */
+.covered { background: #002200; }
+.partial { background: #332200; }
+.missed  { background: #220000; }
+.nonexec { background: #000000; }
 
-.legend { margin-top: 10px; display: flex; gap: 12px; font-size: 12px; color: #b2ffb2; }
+/* Add subtle left border for visual weight */
+.covered .line-no { border-left: 3px solid #00ff00; }
+.partial .line-no { border-left: 3px solid #ffff00; }
+.missed .line-no { border-left: 3px solid #ff0000; }
+.nonexec .line-no { border-left: 3px solid #333333; }
+
+.legend { 
+    margin-top: 1rem; 
+    display: flex; 
+    gap: 1.5rem; 
+    font-size: 12px; 
+    color: #00ff00;
+    border-top: 1px solid #003300;
+    padding-top: 0.75rem;
+}
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
-.legend .swatch { width: 12px; height: 12px; border-radius: 2px; display: inline-block; border: 1px solid #1cff1c; box-shadow: 0 0 6px rgba(28,255,28,0.35); }
-.legend .covered { background: rgba(0, 128, 0, 0.6); }
-.legend .partial { background: rgba(255, 255, 0, 0.6); }
-.legend .missed  { background: rgba(255, 56, 56, 0.6); }
-.legend .nonexec { background: rgba(120, 120, 120, 0.45); }
-        """
+.legend .swatch { 
+    width: 14px; 
+    height: 14px; 
+    display: inline-block; 
+    border: 1px solid #00ff00;
+}
+.legend .covered { background: #002200; border-left: 3px solid #00ff00; }
+.legend .partial { background: #332200; border-left: 3px solid #ffff00; }
+.legend .missed  { background: #220000; border-left: 3px solid #ff0000; }
+.legend .nonexec { background: #000000; border-left: 3px solid #333333; }
+    """
 
     return f"""
 <!DOCTYPE html>
@@ -300,7 +429,6 @@ th { position: sticky; top: 0; background: rgba(0, 40, 0, 0.85); color: #b2ffb2;
 <style>{style}</style>
 </head>
 <body>
-<div class=\"crt\">
 <h1>{html.escape(title)}</h1>
 <div class=\"summary\">
   <div class=\"summary-card\">
@@ -325,7 +453,6 @@ th { position: sticky; top: 0; background: rgba(0, 40, 0, 0.85); color: #b2ffb2;
   <span><span class=\"swatch partial\"></span>Partial Branch</span>
   <span><span class=\"swatch missed\"></span>Missed</span>
   <span><span class=\"swatch nonexec\"></span>Non-executable</span>
-</div>
 </div>
 </body>
 </html>
