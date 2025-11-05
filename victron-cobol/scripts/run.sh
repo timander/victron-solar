@@ -14,6 +14,7 @@ if [ ! -f "./output/SOLARCOST" ]; then
 fi
 
 # Run the compiled COBOL program in container with volume mounts
+mkdir -p ./output
 podman run --rm \
     -v "$(pwd)/../data:/app/data:ro" \
     -v "$(pwd)/output:/app/output:rw" \

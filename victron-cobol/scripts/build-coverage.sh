@@ -20,6 +20,7 @@ rm -f ./output/*.gcda ./output/*.gcno ./output/*.gcov
 # -A passes flags to C compiler: -fprofile-arcs -ftest-coverage for gcov
 # -save-temps keeps .gcno file needed for coverage
 # Work in /app/bin so .gcno is created in output directory
+mkdir -p ./output
 podman run --rm \
     -v "$(pwd)/src:/app/src:ro" \
     -v "$(pwd)/output:/app/bin:rw" \

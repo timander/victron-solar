@@ -16,6 +16,7 @@ fi
 # Run the compiled COBOL program in container with coverage collection
 # Mount output directory as working directory so .gcda files are written there
 # Set GCOV environment variables to ensure coverage data is captured
+mkdir -p ./output
 podman run --rm \
     -v "$(pwd)/../data:/app/data:ro" \
     -v "$(pwd)/output:/app/output:rw" \

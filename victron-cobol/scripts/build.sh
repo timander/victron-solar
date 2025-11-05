@@ -14,6 +14,7 @@ echo ""
 echo "Compiling COBOL source..."
 
 # Compile the COBOL program inside a temporary container
+mkdir -p ./output
 podman run --rm \
     -v "$(pwd)/src:/app/src:ro" \
     -v "$(pwd)/output:/app/bin:rw" \

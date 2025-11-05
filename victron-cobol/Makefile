@@ -11,10 +11,10 @@ help: ## Show this help message
 build: ## Build container image and compile COBOL program
 	@./scripts/build.sh
 
-run: ## Execute COBOL program in container
+run: build ## Execute COBOL program in container (build if needed)
 	@./scripts/run.sh
 
-report: build run ## Build and run to generate cost report
+report: run ## Build and run to generate cost report
 	@echo ""
 	@echo "Report generated successfully:"
 	@cat ./output/solar_cost_report.txt
@@ -22,13 +22,13 @@ report: build run ## Build and run to generate cost report
 coverage-build: ## Build COBOL program with coverage instrumentation
 	@./scripts/build-coverage.sh
 
-coverage-run: ## Run coverage-enabled program and collect data
+coverage-run: coverage-build ## Run coverage-enabled program and collect data (build if needed)
 	@./scripts/run-coverage.sh
 
-coverage-report: ## Generate HTML coverage report
+coverage-report: coverage-run ## Generate HTML coverage report (ensures coverage data exists)
 	@./scripts/generate-coverage-report.sh
 
-coverage: coverage-build coverage-run coverage-report ## Full coverage workflow: build, run, report
+coverage: coverage-report ## Full coverage workflow: build, run, report
 	@echo ""
 	@echo "======================================"
 	@echo "Coverage Analysis Complete!"
