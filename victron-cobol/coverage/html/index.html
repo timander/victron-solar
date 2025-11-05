@@ -1,11 +1,642 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=bin/SOLARCOST.c.gcov.html">
-    <title>Coverage Report</title>
+<meta charset="UTF-8">
+<title>COBOL Solar Cost Analysis Coverage</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; margin: 1.5rem; }
+h1 { margin: 0 0 0.25rem; font-size: 1.75rem; }
+.summary { margin: 1rem 0 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.summary-card { background: #1e293b; padding: 0.75rem 1.25rem; border-radius: 0.75rem; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.45); }
+.summary-card h2 { margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; }
+.summary-card p { margin: 0.45rem 0 0; font-size: 1.25rem; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.85rem; }
+th, td { padding: 0.3rem 0.5rem; text-align: left; border-bottom: 1px solid rgba(148, 163, 184, 0.12); }
+th { position: sticky; top: 0; background: #0b1120; z-index: 2; }
+.line-no { width: 3.5rem; color: #94a3b8; }
+.hit-count { width: 4.5rem; text-align: right; }
+.branch-cell { width: 6rem; }
+.code { white-space: pre; color: #e2e8f0; }
+.covered { background: rgba(34, 197, 94, 0.16); }
+.missed { background: rgba(248, 113, 113, 0.22); }
+.partial { background: rgba(250, 204, 21, 0.20); }
+.nonexec { background: rgba(148, 163, 184, 0.08); color: #94a3b8; }
+.legend { margin-top: 1.25rem; display: flex; gap: 1rem; font-size: 0.8rem; color: #cbd5f5; }
+.legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.legend .swatch { width: 0.9rem; height: 0.9rem; border-radius: 0.25rem; display: inline-block; }
+.legend .covered { background: #22c55e; }
+.legend .partial { background: #facc15; }
+.legend .missed { background: #f87171; }
+.legend .nonexec { background: #94a3b8; }
+    </style>
 </head>
 <body>
-    <p>Redirecting to coverage report... <a href="bin/SOLARCOST.c.gcov.html">Click here if not redirected</a></p>
+<h1>COBOL Solar Cost Analysis Coverage</h1>
+<div class="summary">
+  <div class="summary-card">
+    <h2>Line Coverage</h2>
+    <p>84.5% (185 / 219)</p>
+  </div>
+  <div class="summary-card">
+    <h2>Branch Coverage</h2>
+    <p>24.5% (49 / 200)</p>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr><th class="line-no">Line</th><th class="hit-count">Hits</th><th class="branch-cell">Branches</th><th>Code</th></tr>
+  </thead>
+  <tbody>
+    <tr class="nonexec"><td class="line-no">1</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      ******************************************************************</td></tr>
+    <tr class="nonexec"><td class="line-no">2</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * SOLAR COST ANALYSIS PROGRAM</td></tr>
+    <tr class="nonexec"><td class="line-no">3</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Purpose: Calculate solar energy cost savings from CSV data</td></tr>
+    <tr class="nonexec"><td class="line-no">4</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Author: Modernized COBOL Demo</td></tr>
+    <tr class="nonexec"><td class="line-no">5</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Date: 2025-11-04</td></tr>
+    <tr class="nonexec"><td class="line-no">6</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * </td></tr>
+    <tr class="nonexec"><td class="line-no">7</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * This program demonstrates modern COBOL practices in a </td></tr>
+    <tr class="nonexec"><td class="line-no">8</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * containerized environment, processing solar panel data</td></tr>
+    <tr class="nonexec"><td class="line-no">9</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * to generate financial analysis reports.</td></tr>
+    <tr class="nonexec"><td class="line-no">10</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      ******************************************************************</td></tr>
+    <tr class="nonexec"><td class="line-no">11</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       IDENTIFICATION DIVISION.</td></tr>
+    <tr class="nonexec"><td class="line-no">12</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       PROGRAM-ID. SOLARCOST.</td></tr>
+    <tr class="nonexec"><td class="line-no">13</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">14</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       ENVIRONMENT DIVISION.</td></tr>
+    <tr class="nonexec"><td class="line-no">15</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       INPUT-OUTPUT SECTION.</td></tr>
+    <tr class="nonexec"><td class="line-no">16</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       FILE-CONTROL.</td></tr>
+    <tr class="nonexec"><td class="line-no">17</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           SELECT CSV-INPUT-FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">18</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               ASSIGN TO CSV-FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">19</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               ORGANIZATION IS LINE SEQUENTIAL</td></tr>
+    <tr class="nonexec"><td class="line-no">20</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               FILE STATUS IS WS-FILE-STATUS.</td></tr>
+    <tr class="nonexec"><td class="line-no">21</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               </td></tr>
+    <tr class="nonexec"><td class="line-no">22</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           SELECT REPORT-OUTPUT-FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">23</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               ASSIGN TO REPORT-FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">24</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               ORGANIZATION IS LINE SEQUENTIAL</td></tr>
+    <tr class="nonexec"><td class="line-no">25</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               FILE STATUS IS WS-REPORT-STATUS.</td></tr>
+    <tr class="nonexec"><td class="line-no">26</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">27</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       DATA DIVISION.</td></tr>
+    <tr class="nonexec"><td class="line-no">28</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       FILE SECTION.</td></tr>
+    <tr class="nonexec"><td class="line-no">29</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       FD  CSV-INPUT-FILE.</td></tr>
+    <tr class="nonexec"><td class="line-no">30</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  CSV-RECORD                  PIC X(200).</td></tr>
+    <tr class="nonexec"><td class="line-no">31</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">32</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       FD  REPORT-OUTPUT-FILE.</td></tr>
+    <tr class="nonexec"><td class="line-no">33</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  REPORT-LINE                 PIC X(70).</td></tr>
+    <tr class="nonexec"><td class="line-no">34</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">35</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       WORKING-STORAGE SECTION.</td></tr>
+    <tr class="nonexec"><td class="line-no">36</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">37</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * File Status and Control Variables</td></tr>
+    <tr class="nonexec"><td class="line-no">38</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">39</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  CSV-FILE                    PIC X(100).</td></tr>
+    <tr class="nonexec"><td class="line-no">40</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  REPORT-FILE                 PIC X(100).</td></tr>
+    <tr class="nonexec"><td class="line-no">41</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">42</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-FILE-STATUS              PIC XX.</td></tr>
+    <tr class="nonexec"><td class="line-no">43</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           88  WS-FILE-OK              VALUE &quot;00&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">44</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           88  WS-FILE-EOF             VALUE &quot;10&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">45</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">46</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-REPORT-STATUS            PIC XX.</td></tr>
+    <tr class="nonexec"><td class="line-no">47</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">48</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-RECORD-COUNT             PIC 9(5) VALUE ZERO.</td></tr>
+    <tr class="nonexec"><td class="line-no">49</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-FIRST-RECORD-FLAG        PIC X VALUE &quot;Y&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">50</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           88  WS-IS-FIRST-RECORD      VALUE &quot;Y&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">51</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           88  WS-NOT-FIRST-RECORD     VALUE &quot;N&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">52</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">53</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">54</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * CSV Field Definitions (15 fields from SolarHistory.csv)</td></tr>
+    <tr class="nonexec"><td class="line-no">55</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">56</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-CSV-FIELDS.</td></tr>
+    <tr class="nonexec"><td class="line-no">57</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-DAYS-AGO             PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">58</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-DATE-STR             PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">59</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-YIELD-STR            PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">60</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-CONSUMPTION-STR      PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">61</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-MAX-PV-POWER         PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">62</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-MAX-PV-VOLTAGE       PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">63</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-MIN-BATTERY-V        PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">64</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-MAX-BATTERY-V        PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">65</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-TIME-BULK            PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">66</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-TIME-ABSORPTION      PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">67</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-TIME-FLOAT           PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">68</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-ERROR-1              PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">69</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-ERROR-2              PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">70</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-ERROR-3              PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">71</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-ERROR-4              PIC X(10).</td></tr>
+    <tr class="nonexec"><td class="line-no">72</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">73</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">74</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Numeric Working Fields</td></tr>
+    <tr class="nonexec"><td class="line-no">75</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">76</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-YIELD-WH                 PIC 9(6)V99 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">77</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-CONSUMPTION-WH           PIC 9(6)V99 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">78</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">79</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">80</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Accumulator Variables</td></tr>
+    <tr class="nonexec"><td class="line-no">81</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">82</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-TOTAL-YIELD-WH           PIC 9(8)V99 COMP-3 VALUE ZERO.</td></tr>
+    <tr class="nonexec"><td class="line-no">83</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-TOTAL-CONSUMPTION-WH     PIC 9(8)V99 COMP-3 VALUE ZERO.</td></tr>
+    <tr class="nonexec"><td class="line-no">84</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">85</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">86</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Calculation Results (in kWh and USD)</td></tr>
+    <tr class="nonexec"><td class="line-no">87</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">88</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-RATE-PER-KWH             PIC 9V999 COMP-3 VALUE 0.140.</td></tr>
+    <tr class="nonexec"><td class="line-no">89</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">90</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-TOTAL-SOLAR-KWH          PIC 9(6)V999 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">91</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-TOTAL-CONSUMPTION-KWH    PIC 9(6)V999 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">92</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-SOLAR-VALUE-USD          PIC 9(5)V99 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">93</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-CONSUMPTION-COST-USD     PIC 9(5)V99 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">94</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-NET-SAVINGS-USD          PIC S9(5)V99 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">95</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-SOLAR-OFFSET-PCT         PIC 9(5)V9 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">96</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">97</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-AVG-DAILY-SOLAR-KWH      PIC 9(4)V999 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">98</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-AVG-DAILY-CONSUMP-KWH    PIC 9(4)V999 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">99</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-PROJECTED-ANNUAL-USD     PIC 9(6)V99 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">100</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">101</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">102</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Report Formatting Variables</td></tr>
+    <tr class="nonexec"><td class="line-no">103</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">104</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-EDIT-KWH-1               PIC ZZZ9.99.</td></tr>
+    <tr class="nonexec"><td class="line-no">105</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-EDIT-KWH-2               PIC Z9.999.</td></tr>
+    <tr class="nonexec"><td class="line-no">106</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-EDIT-USD                 PIC $$$$,$$9.99.</td></tr>
+    <tr class="nonexec"><td class="line-no">107</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-EDIT-USD-SMALL           PIC $ZZZ9.99.</td></tr>
+    <tr class="nonexec"><td class="line-no">108</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-EDIT-PCT                 PIC ZZZ9.9.</td></tr>
+    <tr class="nonexec"><td class="line-no">109</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-EDIT-DAYS                PIC ZZ9.</td></tr>
+    <tr class="nonexec"><td class="line-no">110</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-EDIT-YEARS               PIC ZZZ9.9.</td></tr>
+    <tr class="nonexec"><td class="line-no">111</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">112</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-PAYBACK-1000             PIC 9(5)V9 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">113</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-PAYBACK-2000             PIC 9(5)V9 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">114</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-PAYBACK-3000             PIC 9(5)V9 COMP-3.</td></tr>
+    <tr class="nonexec"><td class="line-no">115</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">116</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">117</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * Constants</td></tr>
+    <tr class="nonexec"><td class="line-no">118</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">119</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       01  WS-CONSTANTS.</td></tr>
+    <tr class="nonexec"><td class="line-no">120</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-SEPARATOR-LINE       PIC X(70) VALUE ALL &quot;-&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">121</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           05  WS-EQUALS-LINE          PIC X(70) VALUE ALL &quot;=&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">122</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">123</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">       PROCEDURE DIVISION.</td></tr>
+    <tr class="nonexec"><td class="line-no">124</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">125</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * MAIN CONTROL LOGIC</td></tr>
+    <tr class="nonexec"><td class="line-no">126</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">127</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       000-MAIN-CONTROL.</td></tr>
+    <tr class="partial"><td class="line-no">128</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 100-INITIALIZE-PROGRAM.</td></tr>
+    <tr class="partial"><td class="line-no">129</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 200-PROCESS-CSV-FILE.</td></tr>
+    <tr class="partial"><td class="line-no">130</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 300-CALCULATE-COSTS.</td></tr>
+    <tr class="partial"><td class="line-no">131</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 400-GENERATE-REPORT.</td></tr>
+    <tr class="partial"><td class="line-no">132</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 900-CLEANUP-AND-EXIT.</td></tr>
+    <tr class="covered"><td class="line-no">133</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STOP RUN.</td></tr>
+    <tr class="nonexec"><td class="line-no">134</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">135</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">136</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * INITIALIZATION</td></tr>
+    <tr class="nonexec"><td class="line-no">137</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="covered"><td class="line-no">138</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">       100-INITIALIZE-PROGRAM.</td></tr>
+    <tr class="covered"><td class="line-no">139</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           DISPLAY &quot;Initializing Solar Cost Analysis Program...&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">140</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">141</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           ACCEPT CSV-FILE FROM ENVIRONMENT &quot;CSV_INPUT&quot;</td></tr>
+    <tr class="partial"><td class="line-no">142</td><td class="hit-count">1</td><td class="branch-cell" title="branch  1 taken 0% (fallthrough) | branch  2 taken 100%">1/2</td><td class="code">           IF CSV-FILE = SPACES</td></tr>
+    <tr class="missed"><td class="line-no">143</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;../data/SolarHistory.csv&quot; TO CSV-FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">144</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">145</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">146</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           ACCEPT REPORT-FILE FROM ENVIRONMENT &quot;REPORT_OUTPUT&quot;</td></tr>
+    <tr class="partial"><td class="line-no">147</td><td class="hit-count">1</td><td class="branch-cell" title="branch  1 taken 0% (fallthrough) | branch  2 taken 100%">1/2</td><td class="code">           IF REPORT-FILE = SPACES</td></tr>
+    <tr class="missed"><td class="line-no">148</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;./output/solar_cost_report.txt&quot; TO REPORT-FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">149</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">150</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="partial"><td class="line-no">151</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           OPEN INPUT CSV-INPUT-FILE</td></tr>
+    <tr class="partial"><td class="line-no">152</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           IF NOT WS-FILE-OK</td></tr>
+    <tr class="missed"><td class="line-no">153</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               DISPLAY &quot;ERROR: Cannot open input file: &quot; CSV-FILE</td></tr>
+    <tr class="missed"><td class="line-no">154</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               DISPLAY &quot;File Status: &quot; WS-FILE-STATUS</td></tr>
+    <tr class="missed"><td class="line-no">155</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               STOP RUN</td></tr>
+    <tr class="nonexec"><td class="line-no">156</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">157</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="partial"><td class="line-no">158</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           OPEN OUTPUT REPORT-OUTPUT-FILE</td></tr>
+    <tr class="partial"><td class="line-no">159</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           IF NOT WS-FILE-OK</td></tr>
+    <tr class="missed"><td class="line-no">160</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               DISPLAY &quot;ERROR: Cannot open output file: &quot; REPORT-FILE</td></tr>
+    <tr class="missed"><td class="line-no">161</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               DISPLAY &quot;File Status: &quot; WS-REPORT-STATUS</td></tr>
+    <tr class="missed"><td class="line-no">162</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               STOP RUN</td></tr>
+    <tr class="nonexec"><td class="line-no">163</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">164</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">165</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           DISPLAY &quot;Input file: &quot; CSV-FILE</td></tr>
+    <tr class="partial"><td class="line-no">166</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           DISPLAY &quot;Output file: &quot; REPORT-FILE.</td></tr>
+    <tr class="nonexec"><td class="line-no">167</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">168</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">169</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PROCESS CSV FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">170</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">171</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       200-PROCESS-CSV-FILE.</td></tr>
+    <tr class="covered"><td class="line-no">172</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           DISPLAY &quot;Processing CSV records...&quot;</td></tr>
+    <tr class="covered"><td class="line-no">173</td><td class="hit-count">34</td><td class="branch-cell" title="branch  0 taken 3% (fallthrough) | branch  1 taken 97%">2/2</td><td class="code">           PERFORM UNTIL WS-FILE-EOF</td></tr>
+    <tr class="partial"><td class="line-no">174</td><td class="hit-count">33</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">               PERFORM 210-READ-CSV-RECORD</td></tr>
+    <tr class="covered"><td class="line-no">175</td><td class="hit-count">33</td><td class="branch-cell" title="branch  0 taken 97% (fallthrough) | branch  1 taken 3%">2/2</td><td class="code">               IF NOT WS-FILE-EOF</td></tr>
+    <tr class="covered"><td class="line-no">176</td><td class="hit-count">32</td><td class="branch-cell" title="branch  0 taken 3% (fallthrough) | branch  1 taken 97%">2/2</td><td class="code">                   IF WS-IS-FIRST-RECORD</td></tr>
+    <tr class="covered"><td class="line-no">177</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">                       MOVE &quot;N&quot; TO WS-FIRST-RECORD-FLAG</td></tr>
+    <tr class="covered"><td class="line-no">178</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">                       DISPLAY &quot;Skipping header row&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">179</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   ELSE</td></tr>
+    <tr class="partial"><td class="line-no">180</td><td class="hit-count">31</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">                       PERFORM 220-PARSE-CSV-FIELDS</td></tr>
+    <tr class="partial"><td class="line-no">181</td><td class="hit-count">31</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">                       PERFORM 230-ACCUMULATE-TOTALS</td></tr>
+    <tr class="covered"><td class="line-no">182</td><td class="hit-count">31</td><td class="branch-cell">-</td><td class="code">                       ADD 1 TO WS-RECORD-COUNT</td></tr>
+    <tr class="nonexec"><td class="line-no">183</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">184</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">185</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-PERFORM</td></tr>
+    <tr class="nonexec"><td class="line-no">186</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="partial"><td class="line-no">187</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           DISPLAY &quot;Processed &quot; WS-RECORD-COUNT &quot; data records&quot;.</td></tr>
+    <tr class="nonexec"><td class="line-no">188</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">189</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">190</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * READ CSV RECORD</td></tr>
+    <tr class="nonexec"><td class="line-no">191</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">192</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       210-READ-CSV-RECORD.</td></tr>
+    <tr class="partial"><td class="line-no">193</td><td class="hit-count">33</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           READ CSV-INPUT-FILE</td></tr>
+    <tr class="nonexec"><td class="line-no">194</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               AT END</td></tr>
+    <tr class="partial"><td class="line-no">195</td><td class="hit-count">33</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">                   SET WS-FILE-EOF TO TRUE</td></tr>
+    <tr class="nonexec"><td class="line-no">196</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-READ.</td></tr>
+    <tr class="nonexec"><td class="line-no">197</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">198</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">199</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PARSE CSV FIELDS (Split comma-delimited record into fields)</td></tr>
+    <tr class="nonexec"><td class="line-no">200</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">201</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       220-PARSE-CSV-FIELDS.</td></tr>
+    <tr class="partial"><td class="line-no">202</td><td class="hit-count">31</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           UNSTRING CSV-RECORD</td></tr>
+    <tr class="nonexec"><td class="line-no">203</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               DELIMITED BY &quot;,&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">204</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               INTO WS-DAYS-AGO</td></tr>
+    <tr class="nonexec"><td class="line-no">205</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-DATE-STR</td></tr>
+    <tr class="nonexec"><td class="line-no">206</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-YIELD-STR</td></tr>
+    <tr class="nonexec"><td class="line-no">207</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-CONSUMPTION-STR</td></tr>
+    <tr class="nonexec"><td class="line-no">208</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-MAX-PV-POWER</td></tr>
+    <tr class="nonexec"><td class="line-no">209</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-MAX-PV-VOLTAGE</td></tr>
+    <tr class="nonexec"><td class="line-no">210</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-MIN-BATTERY-V</td></tr>
+    <tr class="nonexec"><td class="line-no">211</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-MAX-BATTERY-V</td></tr>
+    <tr class="nonexec"><td class="line-no">212</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-TIME-BULK</td></tr>
+    <tr class="nonexec"><td class="line-no">213</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-TIME-ABSORPTION</td></tr>
+    <tr class="nonexec"><td class="line-no">214</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-TIME-FLOAT</td></tr>
+    <tr class="nonexec"><td class="line-no">215</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-ERROR-1</td></tr>
+    <tr class="nonexec"><td class="line-no">216</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-ERROR-2</td></tr>
+    <tr class="nonexec"><td class="line-no">217</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-ERROR-3</td></tr>
+    <tr class="nonexec"><td class="line-no">218</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                    WS-ERROR-4</td></tr>
+    <tr class="nonexec"><td class="line-no">219</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-UNSTRING.</td></tr>
+    <tr class="nonexec"><td class="line-no">220</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">221</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">222</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * ACCUMULATE TOTALS (Convert strings to numbers and sum)</td></tr>
+    <tr class="nonexec"><td class="line-no">223</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">224</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       230-ACCUMULATE-TOTALS.</td></tr>
+    <tr class="nonexec"><td class="line-no">225</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Convert Yield(Wh) from string to numeric</td></tr>
+    <tr class="partial"><td class="line-no">226</td><td class="hit-count">31</td><td class="branch-cell" title="branch  1 taken 100% (fallthrough) | branch  2 taken 0%">1/2</td><td class="code">           IF WS-YIELD-STR NOT = SPACES</td></tr>
+    <tr class="covered"><td class="line-no">227</td><td class="hit-count">31</td><td class="branch-cell">-</td><td class="code">               MOVE FUNCTION NUMVAL(WS-YIELD-STR) TO WS-YIELD-WH</td></tr>
+    <tr class="covered"><td class="line-no">228</td><td class="hit-count">31</td><td class="branch-cell">-</td><td class="code">               ADD WS-YIELD-WH TO WS-TOTAL-YIELD-WH</td></tr>
+    <tr class="nonexec"><td class="line-no">229</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">230</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">231</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Convert Consumption(Wh) from string to numeric  </td></tr>
+    <tr class="partial"><td class="line-no">232</td><td class="hit-count">31</td><td class="branch-cell" title="branch  1 taken 100% (fallthrough) | branch  2 taken 0%">1/2</td><td class="code">           IF WS-CONSUMPTION-STR NOT = SPACES</td></tr>
+    <tr class="covered"><td class="line-no">233</td><td class="hit-count">31</td><td class="branch-cell">-</td><td class="code">               MOVE FUNCTION NUMVAL(WS-CONSUMPTION-STR) </td></tr>
+    <tr class="nonexec"><td class="line-no">234</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO WS-CONSUMPTION-WH</td></tr>
+    <tr class="partial"><td class="line-no">235</td><td class="hit-count">31</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">               ADD WS-CONSUMPTION-WH TO WS-TOTAL-CONSUMPTION-WH</td></tr>
+    <tr class="nonexec"><td class="line-no">236</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF.</td></tr>
+    <tr class="nonexec"><td class="line-no">237</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">238</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">239</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * CALCULATE COSTS (Match Python cost_analysis.py logic)</td></tr>
+    <tr class="nonexec"><td class="line-no">240</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">241</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       300-CALCULATE-COSTS.</td></tr>
+    <tr class="covered"><td class="line-no">242</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           DISPLAY &quot;Calculating costs...&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">243</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="partial"><td class="line-no">244</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 310-CONVERT-TO-KWH</td></tr>
+    <tr class="partial"><td class="line-no">245</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 320-CALCULATE-FINANCIALS</td></tr>
+    <tr class="partial"><td class="line-no">246</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           PERFORM 330-COMPUTE-PROJECTIONS.</td></tr>
+    <tr class="nonexec"><td class="line-no">247</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">248</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">249</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * CONVERT WH TO KWH (Divide by 1000)</td></tr>
+    <tr class="nonexec"><td class="line-no">250</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">251</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       310-CONVERT-TO-KWH.</td></tr>
+    <tr class="nonexec"><td class="line-no">252</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Convert total Wh to kWh (divide by 1000)</td></tr>
+    <tr class="covered"><td class="line-no">253</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           COMPUTE WS-TOTAL-SOLAR-KWH = WS-TOTAL-YIELD-WH / 1000</td></tr>
+    <tr class="partial"><td class="line-no">254</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           COMPUTE WS-TOTAL-CONSUMPTION-KWH = </td></tr>
+    <tr class="nonexec"><td class="line-no">255</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               WS-TOTAL-CONSUMPTION-WH / 1000.</td></tr>
+    <tr class="nonexec"><td class="line-no">256</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">257</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">258</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * CALCULATE FINANCIALS (Cost = kWh * rate)</td></tr>
+    <tr class="nonexec"><td class="line-no">259</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">260</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       320-CALCULATE-FINANCIALS.</td></tr>
+    <tr class="nonexec"><td class="line-no">261</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Calculate value of solar generated (kWh * rate)</td></tr>
+    <tr class="covered"><td class="line-no">262</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           COMPUTE WS-SOLAR-VALUE-USD = </td></tr>
+    <tr class="nonexec"><td class="line-no">263</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               WS-TOTAL-SOLAR-KWH * WS-RATE-PER-KWH</td></tr>
+    <tr class="nonexec"><td class="line-no">264</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">265</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Calculate cost of energy consumed</td></tr>
+    <tr class="covered"><td class="line-no">266</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           COMPUTE WS-CONSUMPTION-COST-USD = </td></tr>
+    <tr class="nonexec"><td class="line-no">267</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               WS-TOTAL-CONSUMPTION-KWH * WS-RATE-PER-KWH</td></tr>
+    <tr class="nonexec"><td class="line-no">268</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">269</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Calculate net savings (can be negative)</td></tr>
+    <tr class="covered"><td class="line-no">270</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           COMPUTE WS-NET-SAVINGS-USD = </td></tr>
+    <tr class="nonexec"><td class="line-no">271</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               WS-SOLAR-VALUE-USD - WS-CONSUMPTION-COST-USD</td></tr>
+    <tr class="nonexec"><td class="line-no">272</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">273</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Calculate solar offset percentage</td></tr>
+    <tr class="partial"><td class="line-no">274</td><td class="hit-count">1</td><td class="branch-cell" title="branch  1 taken 0% (fallthrough) | branch  2 taken 100%">1/2</td><td class="code">           IF WS-TOTAL-CONSUMPTION-KWH &gt; 0</td></tr>
+    <tr class="missed"><td class="line-no">275</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               COMPUTE WS-SOLAR-OFFSET-PCT = </td></tr>
+    <tr class="nonexec"><td class="line-no">276</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   (WS-TOTAL-SOLAR-KWH / WS-TOTAL-CONSUMPTION-KWH) </td></tr>
+    <tr class="nonexec"><td class="line-no">277</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   * 100</td></tr>
+    <tr class="nonexec"><td class="line-no">278</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           ELSE</td></tr>
+    <tr class="partial"><td class="line-no">279</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">               MOVE ZERO TO WS-SOLAR-OFFSET-PCT</td></tr>
+    <tr class="nonexec"><td class="line-no">280</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF.</td></tr>
+    <tr class="nonexec"><td class="line-no">281</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">282</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">283</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * COMPUTE PROJECTIONS (Daily averages and annual estimates)</td></tr>
+    <tr class="nonexec"><td class="line-no">284</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">285</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       330-COMPUTE-PROJECTIONS.</td></tr>
+    <tr class="nonexec"><td class="line-no">286</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Calculate daily averages</td></tr>
+    <tr class="partial"><td class="line-no">287</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           IF WS-RECORD-COUNT &gt; 0</td></tr>
+    <tr class="covered"><td class="line-no">288</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">               COMPUTE WS-AVG-DAILY-SOLAR-KWH = </td></tr>
+    <tr class="nonexec"><td class="line-no">289</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   WS-TOTAL-SOLAR-KWH / WS-RECORD-COUNT</td></tr>
+    <tr class="covered"><td class="line-no">290</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">               COMPUTE WS-AVG-DAILY-CONSUMP-KWH = </td></tr>
+    <tr class="nonexec"><td class="line-no">291</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   WS-TOTAL-CONSUMPTION-KWH / WS-RECORD-COUNT</td></tr>
+    <tr class="nonexec"><td class="line-no">292</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               </td></tr>
+    <tr class="nonexec"><td class="line-no">293</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *        Project annual savings (multiply by 365/days)</td></tr>
+    <tr class="covered"><td class="line-no">294</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">               COMPUTE WS-PROJECTED-ANNUAL-USD = </td></tr>
+    <tr class="nonexec"><td class="line-no">295</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   WS-NET-SAVINGS-USD * (365 / WS-RECORD-COUNT)</td></tr>
+    <tr class="nonexec"><td class="line-no">296</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               </td></tr>
+    <tr class="nonexec"><td class="line-no">297</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *        Calculate payback periods for different system costs</td></tr>
+    <tr class="partial"><td class="line-no">298</td><td class="hit-count">1</td><td class="branch-cell" title="branch  1 taken 100% (fallthrough) | branch  2 taken 0%">1/2</td><td class="code">               IF WS-PROJECTED-ANNUAL-USD &gt; 0</td></tr>
+    <tr class="covered"><td class="line-no">299</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">                   COMPUTE WS-PAYBACK-1000 = 1000 / </td></tr>
+    <tr class="nonexec"><td class="line-no">300</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                       WS-PROJECTED-ANNUAL-USD</td></tr>
+    <tr class="covered"><td class="line-no">301</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">                   COMPUTE WS-PAYBACK-2000 = 2000 / </td></tr>
+    <tr class="nonexec"><td class="line-no">302</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                       WS-PROJECTED-ANNUAL-USD</td></tr>
+    <tr class="covered"><td class="line-no">303</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">                   COMPUTE WS-PAYBACK-3000 = 3000 / </td></tr>
+    <tr class="nonexec"><td class="line-no">304</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                       WS-PROJECTED-ANNUAL-USD</td></tr>
+    <tr class="nonexec"><td class="line-no">305</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               ELSE</td></tr>
+    <tr class="missed"><td class="line-no">306</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">                   MOVE 9999.9 TO WS-PAYBACK-1000</td></tr>
+    <tr class="missed"><td class="line-no">307</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">                   MOVE 9999.9 TO WS-PAYBACK-2000</td></tr>
+    <tr class="partial"><td class="line-no">308</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">                   MOVE 9999.9 TO WS-PAYBACK-3000</td></tr>
+    <tr class="nonexec"><td class="line-no">309</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               END-IF</td></tr>
+    <tr class="nonexec"><td class="line-no">310</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF.</td></tr>
+    <tr class="nonexec"><td class="line-no">311</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">312</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">313</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * GENERATE REPORT (Match Python format exactly)</td></tr>
+    <tr class="nonexec"><td class="line-no">314</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">315</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       400-GENERATE-REPORT.</td></tr>
+    <tr class="covered"><td class="line-no">316</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           DISPLAY &quot;Generating report...&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">317</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="partial"><td class="line-no">318</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 410-PRINT-HEADER</td></tr>
+    <tr class="partial"><td class="line-no">319</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 420-PRINT-ENERGY-SUMMARY</td></tr>
+    <tr class="partial"><td class="line-no">320</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 430-PRINT-FINANCIAL-ANALYSIS</td></tr>
+    <tr class="partial"><td class="line-no">321</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 440-PRINT-PROJECTIONS</td></tr>
+    <tr class="partial"><td class="line-no">322</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 0% (fallthrough) | branch  1 taken 100%">1/2</td><td class="code">           PERFORM 450-PRINT-INVESTMENT-GUIDANCE</td></tr>
+    <tr class="partial"><td class="line-no">323</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           PERFORM 460-PRINT-FOOTER.</td></tr>
+    <tr class="nonexec"><td class="line-no">324</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">325</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">326</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PRINT HEADER</td></tr>
+    <tr class="nonexec"><td class="line-no">327</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">328</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       410-PRINT-HEADER.</td></tr>
+    <tr class="partial"><td class="line-no">329</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-EQUALS-LINE</td></tr>
+    <tr class="covered"><td class="line-no">330</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;SOLAR ENERGY COST ANALYSIS REPORT&quot; TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">331</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">332</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-EQUALS-LINE</td></tr>
+    <tr class="partial"><td class="line-no">333</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES</td></tr>
+    <tr class="nonexec"><td class="line-no">334</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">335</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Format and write analysis period</td></tr>
+    <tr class="covered"><td class="line-no">336</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">337</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-RECORD-COUNT TO WS-EDIT-DAYS</td></tr>
+    <tr class="covered"><td class="line-no">338</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Analysis Period: &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">339</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-DAYS DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">340</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; days&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">341</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">342</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">343</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">344</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Format and write electricity rate</td></tr>
+    <tr class="covered"><td class="line-no">345</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;Electricity Rate: $0.140 per kWh&quot; TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">346</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">347</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES.</td></tr>
+    <tr class="nonexec"><td class="line-no">348</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">349</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">350</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PRINT ENERGY SUMMARY</td></tr>
+    <tr class="nonexec"><td class="line-no">351</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">352</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       420-PRINT-ENERGY-SUMMARY.</td></tr>
+    <tr class="partial"><td class="line-no">353</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="covered"><td class="line-no">354</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;ENERGY SUMMARY&quot; TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">355</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">356</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">357</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">358</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Solar Energy Collected</td></tr>
+    <tr class="covered"><td class="line-no">359</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">360</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-TOTAL-SOLAR-KWH TO WS-EDIT-KWH-1</td></tr>
+    <tr class="covered"><td class="line-no">361</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Solar Energy Collected:    &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">362</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-KWH-1 DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">363</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; kWh&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">364</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">365</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">366</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">367</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Energy Consumed</td></tr>
+    <tr class="covered"><td class="line-no">368</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">369</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-TOTAL-CONSUMPTION-KWH TO WS-EDIT-KWH-1</td></tr>
+    <tr class="covered"><td class="line-no">370</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Energy Consumed:           &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">371</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-KWH-1 DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">372</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; kWh&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">373</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">374</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">375</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">376</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Solar Offset</td></tr>
+    <tr class="covered"><td class="line-no">377</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">378</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-SOLAR-OFFSET-PCT TO WS-EDIT-PCT</td></tr>
+    <tr class="covered"><td class="line-no">379</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Solar Offset:              &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">380</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-PCT DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">381</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot;%&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">382</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">383</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">384</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES</td></tr>
+    <tr class="nonexec"><td class="line-no">385</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">386</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Daily Average Solar</td></tr>
+    <tr class="covered"><td class="line-no">387</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">388</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-AVG-DAILY-SOLAR-KWH TO WS-EDIT-KWH-2</td></tr>
+    <tr class="covered"><td class="line-no">389</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Daily Average Solar:       &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">390</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-KWH-2 DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">391</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; kWh&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">392</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">393</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">394</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">395</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Daily Average Consumption</td></tr>
+    <tr class="covered"><td class="line-no">396</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">397</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-AVG-DAILY-CONSUMP-KWH TO WS-EDIT-KWH-2</td></tr>
+    <tr class="covered"><td class="line-no">398</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Daily Average Consumption: &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">399</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-KWH-2 DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">400</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; kWh&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">401</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">402</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">403</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES.</td></tr>
+    <tr class="nonexec"><td class="line-no">404</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">405</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">406</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PRINT FINANCIAL ANALYSIS</td></tr>
+    <tr class="nonexec"><td class="line-no">407</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">408</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       430-PRINT-FINANCIAL-ANALYSIS.</td></tr>
+    <tr class="partial"><td class="line-no">409</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="covered"><td class="line-no">410</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;FINANCIAL ANALYSIS&quot; TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">411</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">412</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">413</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">414</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Value of Solar Generated</td></tr>
+    <tr class="covered"><td class="line-no">415</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">416</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-SOLAR-VALUE-USD TO WS-EDIT-USD-SMALL</td></tr>
+    <tr class="covered"><td class="line-no">417</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Value of Solar Generated:  &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">418</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-USD-SMALL DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">419</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">420</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">421</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">422</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Cost of Energy Consumed</td></tr>
+    <tr class="covered"><td class="line-no">423</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">424</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-CONSUMPTION-COST-USD TO WS-EDIT-USD-SMALL</td></tr>
+    <tr class="covered"><td class="line-no">425</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Cost of Energy Consumed:   &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">426</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-USD-SMALL DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">427</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">428</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">429</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">430</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    NET SAVINGS</td></tr>
+    <tr class="covered"><td class="line-no">431</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">432</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-NET-SAVINGS-USD TO WS-EDIT-USD-SMALL</td></tr>
+    <tr class="covered"><td class="line-no">433</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;NET SAVINGS:               &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">434</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-USD-SMALL DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">435</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">436</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">437</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES.</td></tr>
+    <tr class="nonexec"><td class="line-no">438</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">439</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">440</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PRINT PROJECTIONS</td></tr>
+    <tr class="nonexec"><td class="line-no">441</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">442</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       440-PRINT-PROJECTIONS.</td></tr>
+    <tr class="partial"><td class="line-no">443</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="covered"><td class="line-no">444</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;PROJECTIONS&quot; TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">445</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">446</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">447</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">448</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Projected Annual Savings</td></tr>
+    <tr class="covered"><td class="line-no">449</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">450</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-PROJECTED-ANNUAL-USD TO WS-EDIT-USD-SMALL</td></tr>
+    <tr class="covered"><td class="line-no">451</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Projected Annual Savings:  &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">452</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-USD-SMALL DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">453</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">454</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">455</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES.</td></tr>
+    <tr class="nonexec"><td class="line-no">456</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">457</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">458</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PRINT INVESTMENT GUIDANCE</td></tr>
+    <tr class="nonexec"><td class="line-no">459</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">460</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       450-PRINT-INVESTMENT-GUIDANCE.</td></tr>
+    <tr class="partial"><td class="line-no">461</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="covered"><td class="line-no">462</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;INVESTMENT GUIDANCE&quot; TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">463</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">464</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM WS-SEPARATOR-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">465</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">466</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Based on analysis period</td></tr>
+    <tr class="covered"><td class="line-no">467</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">468</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-RECORD-COUNT TO WS-EDIT-DAYS</td></tr>
+    <tr class="covered"><td class="line-no">469</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;Based on your &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">470</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-DAYS DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">471</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot;-day analysis:&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">472</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">473</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">474</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES</td></tr>
+    <tr class="nonexec"><td class="line-no">475</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">476</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Solar system value</td></tr>
+    <tr class="covered"><td class="line-no">477</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">478</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-SOLAR-VALUE-USD TO WS-EDIT-USD-SMALL</td></tr>
+    <tr class="covered"><td class="line-no">479</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;* Your solar system generates &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">480</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-USD-SMALL DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">481</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; worth of energy&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">482</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">483</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">484</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">485</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Net positive/negative message</td></tr>
+    <tr class="partial"><td class="line-no">486</td><td class="hit-count">1</td><td class="branch-cell" title="branch  1 taken 100% (fallthrough) | branch  2 taken 0%">1/2</td><td class="code">           IF WS-NET-SAVINGS-USD &gt; 0</td></tr>
+    <tr class="covered"><td class="line-no">487</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;* You are NET POSITIVE - solar exceeds consumption&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">488</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">489</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           ELSE</td></tr>
+    <tr class="missed"><td class="line-no">490</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;* You are consuming more than you generate&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">491</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">492</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF</td></tr>
+    <tr class="partial"><td class="line-no">493</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">494</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">495</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Solar offset percentage</td></tr>
+    <tr class="covered"><td class="line-no">496</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">497</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-SOLAR-OFFSET-PCT TO WS-EDIT-PCT</td></tr>
+    <tr class="covered"><td class="line-no">498</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;* Solar offsets &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">499</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-PCT DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">500</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot;% of your energy needs&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">501</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">502</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">503</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES</td></tr>
+    <tr class="nonexec"><td class="line-no">504</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">505</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Annual Value Analysis</td></tr>
+    <tr class="covered"><td class="line-no">506</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;Annual Value Analysis:&quot; TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">507</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">508</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">509</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">510</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-PROJECTED-ANNUAL-USD TO WS-EDIT-USD-SMALL</td></tr>
+    <tr class="covered"><td class="line-no">511</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;* Annual solar generation value: &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">512</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-USD-SMALL DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">513</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">514</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">515</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">516</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE &quot;* Break-even timeline depends on system cost&quot;</td></tr>
+    <tr class="nonexec"><td class="line-no">517</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">               TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">518</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">519</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">520</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Payback timelines</td></tr>
+    <tr class="covered"><td class="line-no">521</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">522</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-PAYBACK-1000 TO WS-EDIT-YEARS</td></tr>
+    <tr class="covered"><td class="line-no">523</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;  - $1,000 system = &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">524</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-YEARS DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">525</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; years payback&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">526</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">527</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">528</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">529</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">530</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-PAYBACK-2000 TO WS-EDIT-YEARS</td></tr>
+    <tr class="covered"><td class="line-no">531</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;  - $2,000 system = &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">532</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-YEARS DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">533</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; years payback&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">534</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">535</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">536</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="covered"><td class="line-no">537</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE SPACES TO REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">538</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           MOVE WS-PAYBACK-3000 TO WS-EDIT-YEARS</td></tr>
+    <tr class="covered"><td class="line-no">539</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">           STRING &quot;  - $3,000 system = &quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">540</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  WS-EDIT-YEARS DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">541</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  &quot; years payback&quot; DELIMITED BY SIZE</td></tr>
+    <tr class="nonexec"><td class="line-no">542</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                  INTO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">543</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">544</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES</td></tr>
+    <tr class="nonexec"><td class="line-no">545</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           </td></tr>
+    <tr class="nonexec"><td class="line-no">546</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *    Recommendation</td></tr>
+    <tr class="partial"><td class="line-no">547</td><td class="hit-count">1</td><td class="branch-cell" title="branch  1 taken 100% (fallthrough) | branch  2 taken 0%">1/2</td><td class="code">           IF WS-AVG-DAILY-SOLAR-KWH &lt; 0.5</td></tr>
+    <tr class="covered"><td class="line-no">548</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;Recommendation: Your current solar output is LOW.&quot; </td></tr>
+    <tr class="nonexec"><td class="line-no">549</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">550</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">               WRITE REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">551</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;Consider expanding your solar array to&quot; </td></tr>
+    <tr class="nonexec"><td class="line-no">552</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">553</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">               WRITE REPORT-LINE</td></tr>
+    <tr class="covered"><td class="line-no">554</td><td class="hit-count">1</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;maximize ROI and reduce grid dependence.&quot; </td></tr>
+    <tr class="nonexec"><td class="line-no">555</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="partial"><td class="line-no">556</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">               WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">557</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           ELSE</td></tr>
+    <tr class="missed"><td class="line-no">558</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;Recommendation: Strong solar performance.&quot; </td></tr>
+    <tr class="nonexec"><td class="line-no">559</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="missed"><td class="line-no">560</td><td class="hit-count">0</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">               WRITE REPORT-LINE</td></tr>
+    <tr class="missed"><td class="line-no">561</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;Current capacity appears adequate for&quot; </td></tr>
+    <tr class="nonexec"><td class="line-no">562</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="missed"><td class="line-no">563</td><td class="hit-count">0</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">               WRITE REPORT-LINE</td></tr>
+    <tr class="missed"><td class="line-no">564</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">               MOVE &quot;maximizing ROI and reducing grid dependence.&quot; </td></tr>
+    <tr class="nonexec"><td class="line-no">565</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">                   TO REPORT-LINE</td></tr>
+    <tr class="missed"><td class="line-no">566</td><td class="hit-count">0</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">               WRITE REPORT-LINE</td></tr>
+    <tr class="nonexec"><td class="line-no">567</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">           END-IF</td></tr>
+    <tr class="partial"><td class="line-no">568</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           WRITE REPORT-LINE FROM SPACES.</td></tr>
+    <tr class="nonexec"><td class="line-no">569</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">570</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">571</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * PRINT FOOTER</td></tr>
+    <tr class="nonexec"><td class="line-no">572</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">573</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       460-PRINT-FOOTER.</td></tr>
+    <tr class="partial"><td class="line-no">574</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 taken 100% (fallthrough) | branch  1 taken 0%">1/2</td><td class="code">           WRITE REPORT-LINE FROM WS-EQUALS-LINE.</td></tr>
+    <tr class="nonexec"><td class="line-no">575</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">       </td></tr>
+    <tr class="nonexec"><td class="line-no">576</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="nonexec"><td class="line-no">577</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      * CLEANUP AND EXIT</td></tr>
+    <tr class="nonexec"><td class="line-no">578</td><td class="hit-count">-</td><td class="branch-cell">-</td><td class="code">      *----------------------------------------------------------------*</td></tr>
+    <tr class="missed"><td class="line-no">579</td><td class="hit-count">0</td><td class="branch-cell">-</td><td class="code">       900-CLEANUP-AND-EXIT.</td></tr>
+    <tr class="partial"><td class="line-no">580</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           CLOSE CSV-INPUT-FILE</td></tr>
+    <tr class="partial"><td class="line-no">581</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           CLOSE REPORT-OUTPUT-FILE</td></tr>
+    <tr class="partial"><td class="line-no">582</td><td class="hit-count">1</td><td class="branch-cell" title="branch  0 never executed | branch  1 never executed">0/2</td><td class="code">           DISPLAY &quot;Program completed successfully&quot;.</td></tr>
+  </tbody>
+</table>
+<div class="legend">
+  <span><span class="swatch covered"></span>Covered</span>
+  <span><span class="swatch partial"></span>Partial Branch</span>
+  <span><span class="swatch missed"></span>Missed</span>
+  <span><span class="swatch nonexec"></span>Non-executable</span>
+</div>
 </body>
 </html>

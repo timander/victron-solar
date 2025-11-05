@@ -26,6 +26,8 @@ podman run --rm \
     -w /app/bin \
     victron-cobol:latest \
     cobc -x \
+         -g \
+         -fdebugging-line \
          -A "-fprofile-arcs -ftest-coverage" \
          -Q "-lgcov" \
          -save-temps \
