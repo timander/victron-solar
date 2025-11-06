@@ -59,6 +59,11 @@ disallow_untyped_defs = true
 module = "tests.*"
 disallow_untyped_defs = false
 
+[[tool.mypy.overrides]]
+module = ["src.visualization", "src.pipeline"]
+# Polars returns union types that cause many false positives with strict mode
+disable_error_code = ["arg-type", "operator", "str-bytes-safe", "misc", "unused-ignore"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]

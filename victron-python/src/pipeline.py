@@ -64,17 +64,22 @@ class SolarPipeline:
             raise RuntimeError("Failed to load data")
 
         df = self.df
-        summary_data = {
-            "total_yield_wh": float(df["Yield(Wh)"].sum()),
-            "max_pv_power_w": float(df["Max. PV power(W)"].max()),
-            "max_pv_voltage_v": float(df["Max. PV voltage(V)"].max()),
-            "min_battery_voltage_v": float(df["Min. battery voltage(V)"].min()),
-            "max_battery_voltage_v": float(df["Max. battery voltage(V)"].max()),
-            "total_days": int(df.height),
-        }
+        total_yield_wh = float(df["Yield(Wh)"].sum())  # type: ignore[arg-type]
+        max_pv_power_w = float(df["Max. PV power(W)"].max())  # type: ignore[arg-type]
+        max_pv_voltage_v = float(df["Max. PV voltage(V)"].max())  # type: ignore[arg-type]
+        min_battery_voltage_v = float(df["Min. battery voltage(V)"].min())  # type: ignore[arg-type]
+        max_battery_voltage_v = float(df["Max. battery voltage(V)"].max())  # type: ignore[arg-type]
+        total_days = int(df.height)
 
-        logger.debug(f"Generated summary: {summary_data}")
-        return SolarSummary(**summary_data)
+        logger.debug(f"Generated summary with {total_days} days")
+        return SolarSummary(
+            total_yield_wh=total_yield_wh,
+            max_pv_power_w=max_pv_power_w,
+            max_pv_voltage_v=max_pv_voltage_v,
+            min_battery_voltage_v=min_battery_voltage_v,
+            max_battery_voltage_v=max_battery_voltage_v,
+            total_days=total_days,
+        )
 
     def filter_by_date(self, start: str, end: str) -> pl.DataFrame:
         """Filter records between two dates (inclusive).

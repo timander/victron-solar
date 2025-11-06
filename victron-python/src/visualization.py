@@ -45,7 +45,11 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     avg_yield = df["Yield(Wh)"].mean()
     ax1.bar(dates, yields, alpha=0.7, color="gold", edgecolor="orange", linewidth=1.5)
     ax1.axhline(
-        avg_yield, color="red", linestyle="--", linewidth=2, label=f"Avg: {avg_yield:.0f} Wh"
+        avg_yield,
+        color="red",
+        linestyle="--",
+        linewidth=2,
+        label=f"Avg: {avg_yield:.0f} Wh",  # type: ignore[arg-type]
     )
     ax1.set_title("Daily Solar Energy Production", fontsize=14, fontweight="bold", pad=10)
     ax1.set_ylabel("Energy Yield (Wh)", fontsize=11)
@@ -75,7 +79,7 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     Status: {"Healthy" if min_min_voltage > 12.0 else "Low voltage detected"}
 
     {"WARNING: Battery may be undercharged\nor oversized for solar capacity" if total_yield < 500 else "System operating normally"}
-    """
+    """  # type: ignore[str-bytes-safe,operator]
     ax2.text(
         0.05,
         0.95,
@@ -130,7 +134,7 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     # Combine legends
     lines = line1 + line2
     labels = [line.get_label() for line in lines]
-    ax4.legend(lines, labels, fontsize=8, loc="upper left")
+    ax4.legend(lines, labels, fontsize=8, loc="upper left")  # type: ignore[arg-type]
 
     # Panel 5: Charging Phase Distribution (middle right)
     ax5 = fig.add_subplot(gs[1, 2])
@@ -188,11 +192,11 @@ def create_comprehensive_dashboard(df: pl.DataFrame, save_path: str | Path | Non
     ax8.axis("off")
 
     # Calculate insights
-    days_low_production = sum(1 for y in yields if y < avg_yield * 0.5)
-    days_good_production = sum(1 for y in yields if y > avg_yield)
+    days_low_production = sum(1 for y in yields if y < avg_yield * 0.5)  # type: ignore[operator,misc]
+    days_good_production = sum(1 for y in yields if y > avg_yield)  # type: ignore[operator,misc]
     avg_bulk_time = sum(bulk_time) / len(bulk_time)
     avg_absorption_time = sum(absorption_time) / len(absorption_time)
-    low_battery_days = sum(1 for v in min_v if v < 12.2)
+    low_battery_days = sum(1 for v in min_v if v < 12.2)  # type: ignore[operator,misc]
 
     insights_text = f"""
     KEY INSIGHTS
