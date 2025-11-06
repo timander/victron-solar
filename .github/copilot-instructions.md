@@ -6,3 +6,4 @@ Remind me to commit before switching to a new task.
 Discourage me from doing multiple things at a time, if I give multiple instructions, politely ask me to determine which one to focus on completing first.
 Ignore files that match my .gitignore rules
 Explain your reasoning step by step so I can confirm and verify I gave clear instructions.
+Avoid excess use of emojis.
