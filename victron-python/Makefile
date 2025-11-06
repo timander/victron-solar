@@ -55,17 +55,17 @@ format: ## Format code with ruff
 type-check: ## Run mypy type checker
 	. .venv/bin/activate && mypy src/
 
-run: ## Run the main pipeline
-	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; p=SolarPipeline("$(CSV)"); p.load(); print(p.summarize())'
+run: ## Generate solar cost analysis report
+	@mkdir -p output
+	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.cost_analysis import save_cost_report; df=SolarPipeline("$(CSV)").load(); save_cost_report(df, "output/solar_cost_report.txt"); print("✓ Cost report: output/solar_cost_report.txt")'
 
 viz: ## Run the visualization
+	@mkdir -p output
 	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import plot_yield_over_time; df=SolarPipeline("$(CSV)").load(); plot_yield_over_time(df)'
 
 dashboard: ## Generate comprehensive solar performance dashboard
-	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import create_comprehensive_dashboard; df=SolarPipeline("$(CSV)").load(); create_comprehensive_dashboard(df, "solar_dashboard.png"); print("Dashboard saved to solar_dashboard.png")'
-
-cost-report: ## Generate solar cost analysis report
-	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.cost_analysis import save_cost_report; df=SolarPipeline("$(CSV)").load(); save_cost_report(df, "solar_cost_report.txt"); print("Cost report saved to solar_cost_report.txt")'
+	@mkdir -p output
+	PYTHONPATH=. python -c 'from src.pipeline import SolarPipeline; from src.visualization import create_comprehensive_dashboard; df=SolarPipeline("$(CSV)").load(); create_comprehensive_dashboard(df, "output/solar_dashboard.png"); print("✓ Dashboard: output/solar_dashboard.png")'
 
 clean: ## Remove cache and build artifacts
-	rm -rf __pycache__ .pytest_cache *.png *.txt
+	rm -rf __pycache__ .pytest_cache output/
