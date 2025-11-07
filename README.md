@@ -58,4 +58,4 @@ make coverage   # View IBM 3270-styled coverage report
 ---
 
 **Purpose**: Educational demonstration of legacy modernization strategies  
-**Author**: Tim Anderson | November 2025
+**Author**: Tim Andersen | November 2025
